@@ -1,0 +1,30 @@
+2014-03-11,20:12:49.973870 Message received: IAMAT kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-11,20:12:49.974039 Message sent: AT Young +41475866.8651185 kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-11,20:12:49.974126 IAMAT: Flooding information to peer: <Farmar>
+2014-03-11,20:12:49.974452 IAMAT: Connecting to peer: <Farmar> localhost:12453
+2014-03-11,20:12:49.974488 IAMAT: Flooding information to peer: <Gasol>
+2014-03-11,20:12:49.974672 IAMAT: Connecting to peer: <Gasol> localhost:12450
+2014-03-11,20:13:52.572520 Connected to <Gasol>
+2014-03-11,20:13:52.577030 Message received: AT Gasol +41475866.8651185 kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-11,20:13:52.577082 FROM <Gasol>: Received user information for <kiwi.cs.ucla.edu>
+2014-03-11,20:13:52.577283 AT: Flooding information to peer: <Farmar>
+2014-03-11,20:13:52.577420 AT: Connecting to peer: <Farmar> localhost:12453
+2014-03-11,20:13:52.577459 AT: Flooding information to peer: <Gasol>
+2014-03-11,20:13:52.577571 AT: Connecting to peer: <Gasol> localhost:12450
+2014-03-11,20:13:52.579130 Connected to <Gasol>
+2014-03-11,20:13:57.251882 Connected to <Farmar>
+2014-03-11,20:13:57.252431 Connected to <Farmar>
+2014-03-11,20:13:57.256380 Message received: AT Farmar +41475866.8651185 kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-11,20:13:57.256425 FROM <Farmar>: Received user information for <kiwi.cs.ucla.edu>
+2014-03-12,22:45:37.546430 Message received: AT Gasol +41571299.68230152 kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-12,22:45:37.546475 FROM <Gasol>: Received user information for <kiwi.cs.ucla.edu>
+2014-03-12,22:45:37.546494 AT: Flooding information to peer: <Farmar>
+2014-03-12,22:45:37.546645 AT: Connecting to peer: <Farmar> localhost:12453
+2014-03-12,22:45:37.546666 AT: Flooding information to peer: <Gasol>
+2014-03-12,22:45:37.546782 AT: Connecting to peer: <Gasol> localhost:12450
+2014-03-12,22:45:37.546840 Message received: AT Farmar +41571299.68230152 kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-12,22:45:37.546860 FROM <Farmar>: Received user information for <kiwi.cs.ucla.edu>
+2014-03-12,22:45:37.546903 Message received: AT Gasol +41571299.68230152 kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-12,22:45:37.546922 FROM <Gasol>: Received user information for <kiwi.cs.ucla.edu>
+2014-03-12,22:45:37.549646 Connected to <Gasol>
+2014-03-12,22:45:37.550040 Connected to <Farmar>

@@ -1,0 +1,12 @@
+2014-03-11,20:14:04.803529 Message received: AT Meeks +41475866.8651185 kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-11,20:14:04.803573 FROM <Meeks>: Received user information for <kiwi.cs.ucla.edu>
+2014-03-11,20:14:04.803676 AT: Flooding information to peer: <Meeks>
+2014-03-11,20:14:04.803849 AT: Connecting to peer: <Meeks> localhost:12451
+2014-03-11,20:14:04.805910 Connected to <Meeks>
+2014-03-12,22:45:20.155077 Message received: AT Meeks +41571299.68230152 kiwi.cs.ucla.edu +27.5916+086.5640 1353118103.108893381
+2014-03-12,22:45:20.155131 FROM <Meeks>: Received user information for <kiwi.cs.ucla.edu>
+2014-03-12,22:45:20.155156 AT: Flooding information to peer: <Meeks>
+2014-03-12,22:45:20.155350 AT: Connecting to peer: <Meeks> localhost:12451
+2014-03-12,22:45:20.157519 Connected to <Meeks>
+2014-03-12,22:46:11.067086 Message received: WHATSAT kiwi.cs.ucla.edu 100 2
+2014-03-12,22:46:11.067261 Received from <Meeks>: AT Meeks +41571299.68230152 kiwi.cs.ucla.edu +27.5916+086.5640 '1353118103.108893381'
