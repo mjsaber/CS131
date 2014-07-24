@@ -1,0 +1,23 @@
+1. subset: Solve this by checking if a member in list a is also in list b recursively. 
+
+2. proper_subset: Solve this by checking if a is subset of b and a is not equal set of b. 
+
+3. equal_sets: Solve this by checking if a is subset of b and b is subset of a. 
+
+4. set_diff: Solve this by checking if an element in list a is also in list b, if not then append it to the list recursively. 
+
+5. computed_fixed_point: Solve this by checking if (f x) = x recursively. If not then set (f x) to x. 
+
+6. computed_periodic_point: Solve this with two solutions. Both way had to use a helper function (power f n) which return a function that is n times composed with function f. First way is to recursively check if (power f p x) = x, if not then set (f x) to x. This solution will give the first periodic point. The second solution is to use computed_fixed_point. The idea is to set f to power f p first, then apply new f function to computed fixed point.
+This method will give right periodic point but may not be the first one. 
+
+7. filter_blind_alleys: Solve this with 4 helper functions. The idea is find the proper rules bottom to top. First find the terminate right hand side, then add it to proper rule list. Then find the non-terminate right hand side which can be terminate when apply rules in proper rule list, and do this recursively until the proper rule list does not change anymore, i.e, find the fixed point. I use following helper function to do this.
+
+predicteExists: used in List.exists function to match symbol in right hand side with rules in proper rule list.
+
+rhsIsT: check if all symbols in a particular right hand side is terminate.
+addToTlist: add terminate right hand side to proper rule list, this will be used as f function in computed_fixed_point.
+
+reorderList: this function is used to change the order to the original order by comparing with original rules list.
+
+filter_blind_alleys: match grammar with (symbol, rules) and do computed_fixed_point to rules with function addToTlist. I use equal_sets function as eq function.

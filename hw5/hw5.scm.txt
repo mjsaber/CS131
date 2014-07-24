@@ -1,0 +1,76 @@
+(define match-junk
+	(lambda (k frag cont)
+		(or (cont frag) ; continuation
+			(and
+				(< 0 k)
+				(pair? frag)
+				(match-junk (- k 1) (cdr frag) cont)))))
+
+(define match-*
+	(lambda (matcher frag cont)
+		(or 
+			(cont frag) ; continuation
+			(matcher frag
+				(lambda (frag1)
+					(and 
+						(not (eq? frag frag1))
+						(match-* matcher frag1 cont)))))))
+
+(define make-matcher-wrapped
+	(lambda (pat)
+		(cond
+
+		((symbol? pat)
+		 (lambda (frag cont)
+			(and (pair? frag)
+				(eq? pat (car frag))
+				(cont (cdr frag))))) ; continuation
+
+		((eq? 'or (car pat))
+		 (let make-or-matcher ((pats (cdr pat)))
+			(if (null? pats)
+				(lambda (frag cont) #f)
+				(let ((head-matcher (make-matcher-wrapped (car pats)))
+					(tail-matcher (make-or-matcher (cdr pats))))
+					(lambda (frag cont)
+						(or 
+							(head-matcher frag cont)
+							(tail-matcher frag cont)))))))
+
+		((eq? 'list (car pat))
+		 (let make-list-matcher ((pats (cdr pat)))
+			(if (null? pats)
+				(lambda (frag cont) (cont frag)) ; continuation
+				(let ((head-matcher (make-matcher-wrapped (car pats)))
+					(tail-matcher (make-list-matcher (cdr pats))))
+					(lambda (frag cont)
+						(head-matcher frag
+							(lambda (frag1)
+								(tail-matcher frag1 cont))))))))
+
+		((eq? 'junk (car pat))
+		 (let ((k (cadr pat)))
+			(lambda (frag cont)
+				(match-junk k frag cont))))
+
+		((eq? '* (car pat))
+		 (let ((matcher (make-matcher-wrapped (cadr pat))))
+			(lambda (frag cont)
+				(match-* matcher frag cont)))))))
+
+; continuation.
+; return current pair (frag . state)
+; if continued, return #f to calling function
+(define (cont frag)
+	(call/cc
+		(lambda (cc)
+			(cons
+			 frag
+			 (lambda () (cc #f) ; continuation magic here
+			 )))))
+
+(define (make-matcher pat)
+	(lambda (frag)
+		((make-matcher-wrapped pat) frag cont)))
+
+(provide (all-defined-out))

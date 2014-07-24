@@ -1,0 +1,7 @@
+The most tricky thing for this homework is to use continuation to backtrack. The key idea is to concatenate the suffix with the continuation procedure in this way: (cons frag (lambda () (backtrack (match-junk (- k 1) (cdr frag))))), so that later when evaluating the continuation procedure, it will backtrack to next situation. Another important thing is that using continuation to jump between different matcher.
+
+At very beginning I was stuck at make-junk function. I didn't consider the situation that suffix.procedure = '().#f. 
+
+I also failed at test case (eq? (first-match matcher4 frag2) frag2), because I used to use a global variable to record continuation of make-* matcher. In this approach, the result would be right if make-* only be called once, because I didn't figure out a way to reset the global variable before function call. Later on I changed my approach which just following the old solution's idea.
+
+I failed on the last test case. My guess is that it checks if the suffix is null, but my approach directly evaluate the procedure which followed null suffix to be #f. 

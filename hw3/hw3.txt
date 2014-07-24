@@ -1,0 +1,7 @@
+Firstly I build transpose function which can transpose the matrix one by one. Then use FD solver all_different function to generate fd_variable matrix and operate on fd_variable. At first, I labeled the fd_variables as soon as I generate them. But it turns out very inefficient. Later on I decided to label the fd_variable when matching them with constraint. This is a efficient way because a fd_variable can represent any number of its domain. The longer you keep it as fd_variable (not label it), the more efficient it is. To meet the constraint, just do the pattern match and get target element by using nth function.
+As for plain_kenken, I generate the matrix by creating a list of number from 1 to N for the first row, then use the permutation of the list as the rest rows. Transpose function and check constraint function are pretty much the same with kenken used.
+
+Performance comparison: 
+For test case N=4, kenken can solve it in 2 ms, but it took plain_kenken 1556 ms. For test case N=6, kenken can solve it in 4 ms, but plain_kenken cannot solve it at all.
+1536
+But if constraint C is empty list (C = []), the kenken and plain_kenken are almost the same (for N=4 C=[], kenken took 1536 ms and plain_kenken took 1580 ms), because it contains all the possible situations and I have to label fd_variable once it generated.
